@@ -31,7 +31,7 @@ public class Step1_RSA extends BaseTest {
 
         System.out.println("privateKeyStr = " + privateKeyStr);
         System.out.println("publicKeyStr  = " + publicKeyStr);
-        System.out.println("Please note this set of [RSA Key Pair] and send the [public key] to SmilePay." +
+        System.out.println("Please note this set of [RSA Key Pair] and send the [public key] to TheSmilePay." +
                 "so that SmilePay can verify the request");
     }
 
