@@ -40,13 +40,13 @@ public class TheSmileConstant {
      * SANDBOX URL.
      * From docs API
      */
-    public static final String BASE_SANDBOX_URL = "https://sandbox-gateway.thesmilepay.com";
+    public static final String BASE_SANDBOX_URL = "https://sandbox-gateway.smilepayz.com";
 
     /**
      * PRODUCTION URL. From docs API. <br>
      * If you pass the sandbox docking, you can switch the URL to production.
      */
-    public static final String BASE_URL = "https://gateway.thesmilepay.com";
+    public static final String BASE_URL = "https://gateway.smilepayz.com";
 
     /**
      * AccessToken_API.
