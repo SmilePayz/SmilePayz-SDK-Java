@@ -1,1 +1,1 @@
-# SmilePayz-SmilePayz-SDK-Java
+# SmilePayz-SDK-Java
