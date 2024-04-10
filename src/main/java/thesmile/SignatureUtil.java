@@ -11,6 +11,9 @@ import java.security.PrivateKey;
 import java.security.Signature;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.X509EncodedKeySpec;
 
 /**
  * Function: SHA256withRSA utility class
@@ -140,6 +143,29 @@ public class SignatureUtil {
             }
         }
         return out.toString();
+    }
+
+    /**
+     * content : 'TRADE_NO123456789|2023-12-10T12:43:12+07:00'
+     * encode : UTF-8
+     * signed :
+     * publicKeyStr ： 
+     */
+    public static boolean doCheckNotificationSignature(String content, String signed, String publicKeyStr, String encode) {
+        try {
+            byte[] publicKeys = Base64.decodeBase64(publicKeyStr);
+            X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeys);
+            KeyFactory myKeyFactory = KeyFactory.getInstance("RSA");
+            PublicKey publicKey = myKeyFactory.generatePublic(publicKeySpec);
+
+            Signature signature = Signature.getInstance("SHA256withRSA");
+            signature.initVerify(publicKey);
+            signature.update(content.getBytes(encode));
+            return signature.verify(Base64.decodeBase64(signed));
+        } catch (Exception e) {
+            log.error("Sign doCheck exception:", e);
+        }
+        return false;
     }
 
 }
